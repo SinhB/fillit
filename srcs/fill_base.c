@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 18:20:47 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/15 18:51:46 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/15 20:38:09 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 t_list* fill_real(void)
 {
-        t_list base[19];
+        t_list *base;
 
+        base = (t_list*)malloc(sizeof(t_list) * 19);
         base[1].tetriminos = "1000100010001000";
         base[2].tetriminos = "1111000000000000";
         base[3].tetriminos = "1101100000000000";
@@ -35,6 +36,5 @@ t_list* fill_real(void)
         base[17].tetriminos = "1000100011000000";
         base[18].tetriminos = "1110100000000000";
         base[19].tetriminos = "1100010001000000";
-        
         return(base);
 }

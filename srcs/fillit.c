@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:29:17 by ybecret           #+#    #+#             */
-/*   Updated: 2017/01/11 18:37:23 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/15 20:39:22 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ int     nb_tetriminos(char *buff)
                 check_errors(3);
         if ((((i - cnt) / 16) * 5 - 1) != cnt)
                 check_errors(3);
-        return ((i - count) / 16);
+        return ((i - cnt) / 16);
 }
