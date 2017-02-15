@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:10:28 by ybecret           #+#    #+#             */
-/*   Updated: 2017/01/11 18:17:58 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/16 00:07:24 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,17 @@ char    *ft_strnew(size_t size)
                 check_errors(0);
         return (new);
 
+}
+
+int	ft_sqrt(int nb)
+{
+	int i;
+
+	i = 0;
+	while (i * i < nb)
+		i++;
+	if (i * i == nb)
+		return (i);
+	else
+		return (0);
 }
