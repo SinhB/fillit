@@ -6,13 +6,13 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 18:20:47 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/15 20:38:09 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/15 20:48:22 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_list* fill_real(void)
+t_list* fill_true(void)
 {
         t_list *base;
 

@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 17:49:30 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/15 18:41:08 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/15 20:45:21 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # typedef struct        s_list
 {
         char            tetriminos[16];
+        char            *piece;
+        int             index;
 }                       t_list;
 
 # include <sys/types.h>
