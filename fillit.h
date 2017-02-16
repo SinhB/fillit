@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 17:49:30 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/15 20:45:21 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/16 16:59:32 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,16 @@
 
 # define BUFF_SIZE 545
 
-# typedef struct        s_list
+# typedef struct	s_list
 {
-        char            tetriminos[16];
-}                       t_list;
+	char			tetriminos[16];
+}					t_list;
+
+# typedef struct	s_tetris
+{
+	char			piece[16];
+	int				index;
+}					t_tetris;
 
 # include <sys/types.h>
 # include <sys/uio.h>
