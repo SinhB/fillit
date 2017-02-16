@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:29:17 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/15 20:39:22 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/16 15:16:28 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,22 @@ int     nb_tetriminos(char *buff)
         if ((((i - cnt) / 16) * 5 - 1) != cnt)
                 check_errors(3);
         return ((i - cnt) / 16);
+}
+
+int		fillit(int fd)
+{
+	int		ret;
+	char	buff[BUFF_SIZE +1];
+	char	**tetris;
+
+	ret = read(fd, buff, BUFF_SIZE);
+	buff[ret] = '\0';
+	first_check(buff);
+	tetris = (char **)malloc(sizeof(char*) * (nb_tetriminos(buff)));
+	if (tetris == NULL)
+		check_errors(0);
+	
+	
+	
+	
 }
