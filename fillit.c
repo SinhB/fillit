@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:29:17 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/18 15:26:42 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/18 16:07:30 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ int		fillit(int fd)
 		printf("\n");
 		i++;
 	}
+        printf("valeur de i : %d\n", i);
         test_tetris(tetris, nb_tetriminos(buff));  //comparaison
         printf("%s\n", "tetriminos valides !");
         return (0);

@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 18:20:47 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/18 15:24:10 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/18 16:02:50 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,15 @@ int     test_tetris(t_tetris *tetris, int nb_tetriminos)
                 j = 0;
                 while ((ft_strcmp(tetris[i].piece, base[j].tetriminos)) != 0)
                 {
-                        j++;
+                        printf("valeur de tetris[%d] : %s\n", i, tetris[i].piece);
+                        printf("valeur de base[%d] : %s\n", j, base[j].tetriminos);
                         if (j == 19)
                         {
+                                printf("valeur de i : %d\n", i);
                                 printf("%s\n", "pas valides..");
                                 check_errors(3);
                         }
+                        j++;
                 }
                 i++;
         }
