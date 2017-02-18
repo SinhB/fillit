@@ -6,17 +6,17 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 18:20:47 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/18 16:02:50 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/18 22:48:09 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_list* fill_valid(void)
+t_valid* fill_valid(void)
 {
-        t_list *base;
+        t_valid *base;
 
-        base = (t_list*)malloc(sizeof(t_list) * 19);
+        base = (t_valid*)malloc(sizeof(t_valid) * 19);
         ft_strcpy(base[0].tetriminos, "1000100010001000");
         ft_strcpy(base[1].tetriminos, "1111000000000000");
         ft_strcpy(base[2].tetriminos, "1101100000000000");
@@ -41,7 +41,7 @@ t_list* fill_valid(void)
 
 int     test_tetris(t_tetris *tetris, int nb_tetriminos)
 {
-        t_list  *base;
+        t_valid  *base;
         int     i;
         int     j;
 
