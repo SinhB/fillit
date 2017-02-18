@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:29:17 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/16 18:31:49 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/18 15:26:42 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int     nb_tetriminos(char *buff)
         return ((i - cnt) / 16);
 }
 
-void	fill_tetris(s_tetris *tetris, char *buff, int nb_piece)
+int	fill_tetris(t_tetris *tetris, char *buff, int nb_piece)
 {
 	int		i;
 	int		j;
@@ -53,44 +53,72 @@ void	fill_tetris(s_tetris *tetris, char *buff, int nb_piece)
 	{
 		k = 0;
 		i = 0;
-		while (*buff == '.' || *buff == '\n')
+                printf("%s\n", "hello");
+		while ((*buff == '.' || *buff == '\n') && (*buff != '#'))
+                {
 			i++;
+                        buff++;
+                }
+                printf("%s\n", "world");
 		while (i < 21)
 		{
 			if (*buff == '.' || *buff == '#')
 			{
 				tmp[k] = (*buff == '.' ? '0' : '1');
 				k++;
-			} 
+			}
 			buff++;
 			i++;
 		}
-		if (k < 16 && i == 20)
+                printf("valeur de k : %d\n", k);
+                printf("valeur de i : %d\n", i);
+		if (k < 16 && i == 21)
 		{
-			while (k++ < 16)
+			while (k != 16)
+                        {
 				tmp[k] = '0';
+                                k++;
+                        }
 		}
-		tetris[j].piece = ft_strcpy(tetris[j].piece, tmp);
-		tetris[j]->index = j;
+                tmp[k] = '\0';
+		ft_strcpy(tetris[j].piece, tmp);
+		tetris[j].index = j;
+                printf("index : %d\n", j);
 		j++;
 	}
+        return (0);
 }
 
 int		fillit(int fd)
 {
 	int			ret;
 	char		buff[BUFF_SIZE +1];
-	s_tetris	*tetris;
+	t_tetris	*tetris;
+        int i;                  //pour test d'affichage
+        char *tmp;              //pour test d'affichage
 
 	ret = read(fd, buff, BUFF_SIZE);
 	buff[ret] = '\0';
+        printf("%s\n", "salut0");
 	first_check(buff);
-	tetris = (tetris*)malloc(sizeof(tetris) * (nb_tetriminos(buff)));
+        printf("%s\n", "salut1");
+	tetris = (t_tetris*)malloc(sizeof(tetris) * (nb_tetriminos(buff)));
+        printf("%s\n", "salut_malloc");
 	if (tetris == NULL)
 		check_errors(0);
-	fill_tetris(tetris, buff, nb_tetriminos(buff));
-	
-	
-	
-	
+        printf("%s\n", "salut2");
+	fill_tetris(tetris, buff, nb_tetriminos(buff)); //remplissage de la strcture a partir du buffer
+        printf("%s\n", "salut3");
+        i = 0;                                  //affichage
+        while (i < nb_tetriminos(buff))
+	{
+		tmp = tetris[i].piece;
+		printf("string :");
+		printf("%d %s", i, tetris[i].piece);
+		printf("\n");
+		i++;
+	}
+        test_tetris(tetris, nb_tetriminos(buff));  //comparaison
+        printf("%s\n", "tetriminos valides !");
+        return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:10:28 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/18 12:44:53 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/18 15:08:26 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,16 @@ char	*ft_strcpy(char *dest, const char *src)
 	}
 	dest[i] = '\0';
 	return (dest);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && *s2 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char*)s1 - *(unsigned char*)s2);
 }
 
 int	ft_sqrt(int nb)

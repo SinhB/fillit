@@ -6,13 +6,13 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 18:20:47 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/18 12:46:30 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/18 15:24:10 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_list* fill_true(void)
+t_list* fill_valid(void)
 {
         t_list *base;
 
@@ -37,4 +37,29 @@ t_list* fill_true(void)
         ft_strcpy(base[17].tetriminos, "1110100000000000");
         ft_strcpy(base[18].tetriminos, "1100010001000000");
         return(base);
+}
+
+int     test_tetris(t_tetris *tetris, int nb_tetriminos)
+{
+        t_list  *base;
+        int     i;
+        int     j;
+
+        base = fill_valid();
+        i = 0;
+        while (i < nb_tetriminos)
+        {
+                j = 0;
+                while ((ft_strcmp(tetris[i].piece, base[j].tetriminos)) != 0)
+                {
+                        j++;
+                        if (j == 19)
+                        {
+                                printf("%s\n", "pas valides..");
+                                check_errors(3);
+                        }
+                }
+                i++;
+        }
+        return (0);
 }

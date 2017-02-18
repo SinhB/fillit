@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 17:53:30 by ybecret           #+#    #+#             */
-/*   Updated: 2017/01/11 19:07:02 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/18 14:20:01 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int     main(int ac, char **av)
                 if (fd == -1)
                         check_errors(1);
                 fillit(fd);
+                printf("%s\n", "sortie");
                 close(fd);
         }
         else
