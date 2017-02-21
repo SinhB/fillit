@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 18:20:47 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/18 22:48:09 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/21 16:28:31 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_valid* fill_valid(void)
 {
         t_valid *base;
 
-        base = (t_valid*)malloc(sizeof(t_valid) * 19);
+        if (!(base = (t_valid*)malloc(sizeof(t_valid) * 19)))
+                check_errors(0);
         ft_strcpy(base[0].tetriminos, "1000100010001000");
         ft_strcpy(base[1].tetriminos, "1111000000000000");
         ft_strcpy(base[2].tetriminos, "1101100000000000");
@@ -52,8 +53,6 @@ int     test_tetris(t_tetris *tetris, int nb_tetriminos)
                 j = 0;
                 while ((ft_strcmp(tetris[i].piece, base[j].tetriminos)) != 0)
                 {
-                        printf("valeur de tetris[%d] : %s\n", i, tetris[i].piece);
-                        printf("valeur de base[%d] : %s\n", j, base[j].tetriminos);
                         if (j == 19)
                         {
                                 printf("valeur de i : %d\n", i);

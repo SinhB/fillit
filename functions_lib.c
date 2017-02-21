@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:10:28 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/18 15:08:26 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/21 20:06:01 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void    ft_putstr_fd(char *s, int fd)
 
 char    *ft_strnew(size_t size)
 {
-        char *new;
+        char    *new;
 
         if ((new = (char*)malloc(sizeof(char) * (size + 1))) == NULL)
                 check_errors(0);
@@ -67,9 +67,6 @@ int	ft_sqrt(int nb)
 
 	i = 0;
 	while (i * i < nb)
-		i++;
-	if (i * i == nb)
-		return (i);
-	else
-		return (0);
+                i++;
+        return (i);
 }
