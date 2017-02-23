@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 17:49:30 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/21 20:12:07 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/23 15:30:34 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct	s_tetris
 {
 	char			piece[17];
 	int				index;
+	char			position[2][4];
 }					t_tetris;
 
 typedef struct s_grid

@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:10:28 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/21 20:06:01 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/22 22:30:45 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ char    *ft_strnew(size_t size)
         if ((new = (char*)malloc(sizeof(char) * (size + 1))) == NULL)
                 check_errors(0);
         return (new);
-
 }
 
 char	*ft_strcpy(char *dest, const char *src)
