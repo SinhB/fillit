@@ -6,13 +6,13 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 15:26:24 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/22 22:34:56 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/23 22:02:08 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void init_grid(char **grid, int size)
+void init_grid(char **grid, int size)
 {
         int i;
         int j;

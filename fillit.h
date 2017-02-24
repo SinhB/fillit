@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 17:49:30 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/23 15:30:34 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/02/23 22:04:50 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef struct	s_valid
 typedef struct	s_tetris
 {
 	char			piece[17];
-	int				index;
-	char			position[2][4];
+	int			index;
+	int			position[2][4];
 }					t_tetris;
 
 typedef struct s_grid
@@ -49,12 +49,15 @@ int     nb_tetriminos(char *buff);
 t_valid* fill_valid(void);
 int     test_tetris(t_tetris *tetris, int nb_tetriminos);
 
-int     fill_grid(t_tetris *tetris, int nb_tetriminos);
-static int     size_grid(int nb_tetriminos);
-void     set_grid (char **grid, int size);
-int     print_grid(char **grid, int nb_tetriminos);
+void    fill_pos(t_tetris *tetris, int nb_piece);
+void    init_pos(t_tetris *tetris, int index);
+void    print_pos(t_tetris *tetris, int index);
+
+int     fill_grid(int nb_piece);
+void    set_grid (char **grid, int size);
+int     print_grid(char **grid, int size);
 void    free_grid(char **grid, int size);
-static void init_grid(char **grid, int size);
+void 	init_grid(char **grid, int size);
 
 size_t	ft_strlen(char *s);
 void    ft_putstr_fd(char *s, int fd);
