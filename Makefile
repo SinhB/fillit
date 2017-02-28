@@ -1,4 +1,4 @@
-NAME = fillit.a
+NAME = fillit
 
 CC = gcc
 
@@ -16,9 +16,8 @@ SOURCES = 	check_errors.c\
 OBJ = $(SOURCES:.c=.o)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) -c $(SOURCES)
-		ar rc $(NAME) $(OBJ)
-			ranlib $(NAME)
+	$(CC) $(FLAGS) $(SOURCES)
+			
 all: $(NAME)
 
 clean:
