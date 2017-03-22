@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:29:17 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/23 22:24:49 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/03/11 16:09:31 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,76 @@ int     nb_tetriminos(char *buff)
 				check_errors(3);
 		return ((i - cnt) / 16);
 }
+int	to_theleft(char *piece)
+{
+	int i;
+	int j;
+	int bool;
+	char tmp[17];
+
+	bool = 1;
+	if (piece[0] == '0' && piece[4] == '0' && piece[8] == '0' && piece[12] == '0')
+	{
+		i = 1;
+		j = 0;
+		tmp = piece;
+		while (tmp[i] != '/0')
+		{
+			piece[j] = tmp[i];
+			j++;
+			i++;
+		}
+		piece[j] = '0';
+		bool = 0;
+	}
+	return (bool);
+}
+
+char 	*ft_replace(char *piece)
+{
+	int i;
+	int j;
+	int bool;
+	char tmp[17];
+
+	bool = 1;
+	if (piece[0] == '0' && piece[1] == '0' && piece[2] == '0' && piece[3] == '0')
+	{
+		i = 4;
+		j = 0;
+		while (piece[i] != '/0')
+		{
+			tmp[j] = piece[i];
+			i++;
+			j++;
+		}
+		while (j != 16)
+		{
+			tmp[j] = '0';
+			j++;
+		}
+		bool = 0;
+	}
+	if (bool = 0)
+		ft_replace(tmp);
+	else if (bool = 1)
+		while (to_theleft(tmp) != 1)
+	 		to_theleft(tmp);
+	return (tmp);
+}
 
 int	fill_tetris(t_tetris *tetris, char *buff, int nb_piece)
 {
 	int		i;
 	int		j;
 	int		k;
-	char	tmp[16];
+	char	tmp[17];
 
 	j = 0;
 	while (j < nb_piece && *buff)
 	{
 		k = 0;
 		i = 0;
-		while ((*buff == '.' || *buff == '\n') && (*buff != '#'))
-		{
-			i++;
-			buff++;
-		}
 		while (i < 21)
 		{
 			if (*buff == '.' || *buff == '#')
@@ -68,16 +120,17 @@ int	fill_tetris(t_tetris *tetris, char *buff, int nb_piece)
 			buff++;
 			i++;
 		}
-		if (k < 16 && i == 21)
+		/*if (k < 16 && i == 21)
 		{
 			while (k != 16)
 			{
 				tmp[k] = '0';
 				k++;
 			}
-		}
+		}  */
 		printf("valeur de k : %d\n", k);
 		tmp[k] = '\0';
+		tmp = ft_replace(tmp);
 		ft_strcpy(tetris[j].piece, tmp);
 		tetris[j].index = j;
 		printf("index : %d\n", j);
