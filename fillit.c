@@ -44,10 +44,10 @@ char	*to_theleft(char *piece)
 {
 	int		i;
 	int		j;
-	int		bool;
+	int		test; // ancien bool
 	char	tmp[17];
 
-	bool = 1;
+	test = 1;
 	ft_strcpy(tmp, piece);
 	if (piece[0] == '0' && piece[4] == '0' && piece[8] == '0' && piece[12] == '0')
 	{
@@ -64,9 +64,9 @@ char	*to_theleft(char *piece)
 			tmp[j] = '0';
 			j++;
 		}
-		bool = 0;
+		test = 0;
 	}
-	if (bool == 0)
+	if (test == 0)
 	{
 		to_theleft(tmp); 
 	}
@@ -78,10 +78,10 @@ char	*ft_replace(char *piece)
 {
 	int 	i;
 	int 	j;
-	int		bool;
+	int		test; // ancien bool
 	char	tmp[17];
 
-	bool = 1;
+	test = 1;
 	ft_strcpy(tmp, piece);
 	if (piece[0] == '0' && piece[1] == '0' && piece[2] == '0' && piece[3] == '0')
 	{
@@ -98,11 +98,11 @@ char	*ft_replace(char *piece)
 			tmp[j] = '0';
 			j++;
 		}
-		bool = 0;
+		test = 0;
 	}
-	if (bool == 0)
+	if (test == 0)
 		ft_replace(tmp);
-	if (bool == 1)
+	if (test == 1)
 	 	to_theleft(tmp);
 	ft_strcpy(piece, tmp);
 	return (piece);
@@ -167,7 +167,7 @@ int		fillit(int fd)
 	first_check(buff);
 	printf("%s\n", "salut1");
 	nb_piece = nb_tetriminos(buff);
-	tetris = (t_tetris*)malloc(sizeof(tetris) * (nb_piece));
+	tetris =(t_tetris*)malloc(sizeof(t_tetris) * (nb_piece));
 	printf("%s\n", "salut_malloc");
 	if (tetris == NULL)
 		check_errors(0);

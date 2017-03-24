@@ -36,7 +36,7 @@ void	first_check(char *buff)
         {
                         if (i % count == 0 && buff [i] != '\n')
                                 check_errors(3);
-                        else if ( i % count == 0 && buff[i] == '\n')
+                        else //if ( i % count == 0 && buff[i] == '\n') inutile
                                 count += 21;
                         i++;
         }
