@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:29:17 by ybecret           #+#    #+#             */
-/*   Updated: 2017/03/24 17:25:47 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:30:53 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ char	*to_theleft(char *piece)
 		printf("%s %s\n", "testleft :", tmp);
 		to_theleft(tmp); 
 	}
+	ft_strcpy(piece, tmp);
 	return (piece);
 }
 
@@ -108,7 +109,8 @@ char	*ft_replace(char *piece)
 		ft_replace(tmp);
 	if (bool == 1)
 	 	to_theleft(tmp);
-	printf("%s %s\n", "replace :", piece);
+	printf("%s %s\n", "replace :", tmp);
+	ft_strcpy(piece, tmp);
 	return (piece);
 }
 
