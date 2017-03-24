@@ -40,37 +40,38 @@ int     nb_tetriminos(char *buff)
 				check_errors(3);
 		return ((i - cnt) / 16);
 }
-int	to_theleft(char *piece)
+char	*to_theleft(char *piece)
 {
-	int i;
-	int j;
-	int bool;
-	char tmp[16];
+	int		i;
+	int		j;
+	int		bool;
+	char	tmp[16];
 
 	bool = 1;
 	if (piece[0] == '0' && piece[4] == '0' && piece[8] == '0' && piece[12] == '0')
 	{
 		i = 1;
 		j = 0;
-		*tmp = *piece;
-		while (*tmp)
+		while (*piece)
 		{
-			piece[j] = tmp[i];
+			tmp[j] = piece[i];
 			j++;
 			i++;
 		}
-		piece[j] = '0';
+		tmp[j] = '0';
 		bool = 0;
 	}
-	return (bool);
+	if (bool == 0)
+		to_theleft(tmp); 
+	return (piece);
 }
 
-int	ft_replace(char *piece)
+char	*ft_replace(char *piece)
 {
-	int i;
-	int j;
-	int bool;
-	char tmp[16];
+	int 	i;
+	int 	j;
+	int		bool;
+	char	tmp[16];
 
 	bool = 1;
 	if (piece[0] == '0' && piece[1] == '0' && piece[2] == '0' && piece[3] == '0')
@@ -93,9 +94,9 @@ int	ft_replace(char *piece)
 	if (bool == 0)
 		ft_replace(tmp);
 	else if (bool == 1)
-		while (to_theleft(tmp) != 1)
-	 		to_theleft(tmp);
-	return (bool);
+	 	to_theleft(tmp);
+	printf("%s %s\n", "replace :", tmp);
+	return (piece);
 }
 
 int	fill_tetris(t_tetris *tetris, char *buff, int nb_piece)
@@ -128,13 +129,14 @@ int	fill_tetris(t_tetris *tetris, char *buff, int nb_piece)
 				k++;
 			}
 		}  */
-		printf("valeur de k : %d\n", k);
+		printf("valeur de ki : %d\n", k);
 		tmp[k] = '\0';
+		printf("%s %s\n", "tmpavantchang :", tmp);
 		ft_replace(tmp);
 		ft_strcpy(tetris[j].piece, tmp);
 		tetris[j].index = j;
-		printf("index : %d\n", j);
-		printf("%s %s\n", "piece :", tetris[j].piece);
+		printf("indexKIKI : %d\n", j);
+		printf("%s %s\n", "pieceKIKI :", tetris[j].piece);
 		j++;
 	}
 	printf("valeur de j :%d\n", j);

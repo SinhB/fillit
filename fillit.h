@@ -46,8 +46,8 @@ void	check_errors(int i);
 int	fillit(int fd);
 int	fill_tetris(t_tetris *tetris, char *buff, int nb_piece);
 int     nb_tetriminos(char *buff);
-int		tp_theleft(char *piece);
-int		ft_replace(char *piece);
+char	*tp_theleft(char *piece);
+char	*ft_replace(char *piece);
 t_valid* fill_valid(void);
 int     test_tetris(t_tetris *tetris, int nb_tetriminos);
 
