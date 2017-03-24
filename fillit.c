@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:29:17 by ybecret           #+#    #+#             */
-/*   Updated: 2017/03/24 14:16:53 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:25:47 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,31 @@ char	*to_theleft(char *piece)
 	char	tmp[16];
 
 	bool = 1;
+	ft_strcpy(tmp, piece);
+	printf("%s %s\n", "testleft1 :", tmp);
 	if (piece[0] == '0' && piece[4] == '0' && piece[8] == '0' && piece[12] == '0')
 	{
 		i = 1;
 		j = 0;
-		while (*piece)
+		while (i < 16)
 		{
 			tmp[j] = piece[i];
 			j++;
 			i++;
 		}
-		tmp[j] = '0';
+		while (j != 16)
+		{
+			tmp[j] = '0';
+			j++;
+		}
 		bool = 0;
+		printf("%s %s\n", "intradown :", tmp);
 	}
 	if (bool == 0)
+	{
+		printf("%s %s\n", "testleft :", tmp);
 		to_theleft(tmp); 
+	}
 	return (piece);
 }
 
@@ -74,11 +84,13 @@ char	*ft_replace(char *piece)
 	char	tmp[16];
 
 	bool = 1;
+	ft_strcpy(tmp, piece);
+	printf("%s %s\n", "testup1 :", tmp);
 	if (piece[0] == '0' && piece[1] == '0' && piece[2] == '0' && piece[3] == '0')
 	{
 		i = 4;
 		j = 0;
-		while (*piece)
+		while (i < 16)
 		{
 			tmp[j] = piece[i];
 			i++;
@@ -91,11 +103,12 @@ char	*ft_replace(char *piece)
 		}
 		bool = 0;
 	}
+	printf("%s %s\n", "testup :", tmp);
 	if (bool == 0)
 		ft_replace(tmp);
-	else if (bool == 1)
+	if (bool == 1)
 	 	to_theleft(tmp);
-	printf("%s %s\n", "replace :", tmp);
+	printf("%s %s\n", "replace :", piece);
 	return (piece);
 }
 
