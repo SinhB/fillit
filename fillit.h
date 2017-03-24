@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 17:49:30 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/27 17:59:10 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/03/24 14:16:23 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	check_errors(int i);
 int	fillit(int fd);
 int	fill_tetris(t_tetris *tetris, char *buff, int nb_piece);
 int     nb_tetriminos(char *buff);
+int		tp_theleft(char *piece);
+int		ft_replace(char *piece);
 t_valid* fill_valid(void);
 int     test_tetris(t_tetris *tetris, int nb_tetriminos);
 

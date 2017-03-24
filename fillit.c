@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:29:17 by ybecret           #+#    #+#             */
-/*   Updated: 2017/03/11 16:09:31 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/03/24 14:16:53 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ int	to_theleft(char *piece)
 	int i;
 	int j;
 	int bool;
-	char tmp[17];
+	char tmp[16];
 
 	bool = 1;
 	if (piece[0] == '0' && piece[4] == '0' && piece[8] == '0' && piece[12] == '0')
 	{
 		i = 1;
 		j = 0;
-		tmp = piece;
-		while (tmp[i] != '/0')
+		*tmp = *piece;
+		while (*tmp)
 		{
 			piece[j] = tmp[i];
 			j++;
@@ -65,19 +65,19 @@ int	to_theleft(char *piece)
 	return (bool);
 }
 
-char 	*ft_replace(char *piece)
+int	ft_replace(char *piece)
 {
 	int i;
 	int j;
 	int bool;
-	char tmp[17];
+	char tmp[16];
 
 	bool = 1;
 	if (piece[0] == '0' && piece[1] == '0' && piece[2] == '0' && piece[3] == '0')
 	{
 		i = 4;
 		j = 0;
-		while (piece[i] != '/0')
+		while (*piece)
 		{
 			tmp[j] = piece[i];
 			i++;
@@ -90,12 +90,12 @@ char 	*ft_replace(char *piece)
 		}
 		bool = 0;
 	}
-	if (bool = 0)
+	if (bool == 0)
 		ft_replace(tmp);
-	else if (bool = 1)
+	else if (bool == 1)
 		while (to_theleft(tmp) != 1)
 	 		to_theleft(tmp);
-	return (tmp);
+	return (bool);
 }
 
 int	fill_tetris(t_tetris *tetris, char *buff, int nb_piece)
@@ -103,7 +103,7 @@ int	fill_tetris(t_tetris *tetris, char *buff, int nb_piece)
 	int		i;
 	int		j;
 	int		k;
-	char	tmp[17];
+	char	tmp[16];
 
 	j = 0;
 	while (j < nb_piece && *buff)
@@ -130,7 +130,7 @@ int	fill_tetris(t_tetris *tetris, char *buff, int nb_piece)
 		}  */
 		printf("valeur de k : %d\n", k);
 		tmp[k] = '\0';
-		tmp = ft_replace(tmp);
+		ft_replace(tmp);
 		ft_strcpy(tetris[j].piece, tmp);
 		tetris[j].index = j;
 		printf("index : %d\n", j);
