@@ -12,12 +12,13 @@ SOURCES = 	check_errors.c\
 			main.c\
 			print_grid.c\
 			set_grid.c\
+			backtracking.c\
 
 OBJ = $(SOURCES:.c=.o)
 
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(SOURCES)
-			
+
 all: $(NAME)
 
 clean:

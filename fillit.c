@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:29:17 by ybecret           #+#    #+#             */
-/*   Updated: 2017/03/24 17:58:08 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/03/30 16:16:31 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	*to_theleft(char *piece)
 	}
 	if (test == 0)
 	{
-		to_theleft(tmp); 
+		to_theleft(tmp);
 	}
 	ft_strcpy(piece, tmp);
 	return (piece);
@@ -184,8 +184,8 @@ int		fillit(int fd)
 	printf("valeur de i : %d\n", i);*/
 	test_tetris(tetris, nb_piece);  //comparaison
 	printf("%s\n", "tetriminos valides !");
-	 //   fill_grid(tetris, nb_tetriminos(buff));
 	fill_pos(tetris, nb_piece);  //remplissage coordonnee x y
+	fill_grid(tetris, nb_piece);
 	print_pos(tetris, nb_piece);  //affichage
 	free(tetris);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 15:26:24 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/23 22:02:08 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/03/30 16:20:44 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void init_grid(char **grid, int size)
         while (j < size)
         {
                 i = 0;
-                while (grid[j][i] != '\0')
+                while (i < size)
                 {
                         grid[j][i] = '.';
                         i++;

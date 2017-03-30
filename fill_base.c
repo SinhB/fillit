@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 18:20:47 by ybecret           #+#    #+#             */
-/*   Updated: 2017/02/23 22:09:58 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/03/30 11:49:45 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,6 @@ int     test_tetris(t_tetris *tetris, int nb_tetriminos)
 
 	base = fill_valid();
 	i = 0;
-	printf("tetriminos : %d %s\n", 0, tetris[0].piece);
-	printf("tetriminos : %d %s\n", 1, tetris[1].piece);
-	printf("tetriminos : %d %s\n", 2, tetris[2].piece);
-	printf("tetriminos : %d %s\n", 3, tetris[3].piece);
-	printf("tetriminos : %d %s\n", 4, tetris[4].piece);
-	printf("tetriminos : %d %s\n", 5, tetris[5].piece);
-	printf("tetriminos : %d %s\n", 6, tetris[6].piece);
-	printf("tetriminos : %d %s\n", 7, tetris[7].piece);
-	printf("tetriminos : %d %s\n", 8, tetris[8].piece);
 	while (i < nb_tetriminos)
 	{
 		j = 0;
