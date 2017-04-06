@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 19:27:13 by ybecret           #+#    #+#             */
-/*   Updated: 2017/03/30 18:03:44 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/04/06 16:12:55 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int     test_pos(char **grid, t_tetris *tetris, int index, int pos_spe, int size
         {
                 x = tetris[index].position[0][cnt] + posX;
                 y = tetris[index].position[1][cnt] + posY;
-                printf("grid: %c\n", grid[y][x]);
+				/* printf("grid: %c\n", grid[y][x]);
                 printf("x: %d\n", x);
-                printf("y: %d\n", y);
+                printf("y: %d\n", y);*/
                 if (!grid[y][x])
                         return (1);
                 if (grid[y][x] == '.')
@@ -45,6 +45,7 @@ void     place_piece(char **grid, t_tetris *tetris, int index, int pos_spe, int 
         int cnt;
 
         cnt = 0;
+		tetris[index].pos_spe = pos_spe;
         while (cnt < 4)
         {
                 x = tetris[index].position[0][cnt] + posX;
@@ -54,13 +55,15 @@ void     place_piece(char **grid, t_tetris *tetris, int index, int pos_spe, int 
         }
 }
 
-void    delete_piece(char **grid, t_tetris *tetris, int index, int pos_spe, int size)
+void    delete_piece(char **grid, t_tetris *tetris, int index, int size)
 {
         int x;
         int y;
         int cnt;
+		int pos_spe;
 
         cnt = 0;
+		pos_spe = tetris[index].pos_spe;
         while (cnt < 4)
         {
                 x = tetris[index].position[0][cnt] + posX;
@@ -73,14 +76,45 @@ void    delete_piece(char **grid, t_tetris *tetris, int index, int pos_spe, int 
 int     backtracking(t_tetris *tetris, char **grid, int size, int nb_piece, int pos_spe, int index)
 {
   //      int index;
-        static int start;
+  //      static int start;
+		static int cnt;
 
+		while (pos_spe <= size * size)
+		{
+			if (cnt == 1)
+				return (1);
+			printf("index : %d\n", index);
+			printf("pos_spe : %d\n", pos_spe);
+			if (pos_spe == (size *size))
+			{
+				delete_piece(grid, tetris, index - 1, size);
+				pos_spe = tetris[index - 1].pos_spe + 1 ;
+				index = index - 1;
+			}
+			if (test_pos(grid, tetris, index, pos_spe, size) == 0)
+			{
+				printf("test_pos = 0\n");
+				place_piece(grid, tetris, index, pos_spe, size);
+				if (index + 1 != nb_piece)
+					backtracking(tetris, grid, size, nb_piece, 0, index + 1);
+				else if (index + 1 == nb_piece)
+				{
+					print_grid(grid, size, &cnt);
+					return (1);
+				}
+			}
+			pos_spe++;
+		}
+		return (0);
+}
     //    index = 0;
-        while ((pos_spe <= (size * size)))
+/*        while ((pos_spe <= (size * size)))
         {
                 printf("index : %d\n", index);
                 printf("pos_spe : %d\n", pos_spe);
-                if ((pos_spe == (size * size)) && ((index + 1 != nb_piece)))
+				if (cnt == 1)
+					return (1);
+                if ((pos_spe == (size * size)) && ((index + 1 == nb_piece)))
                 {
                         free_grid(grid, size);
                         if (!(grid = (char**)malloc(sizeof(char*) * size)))
@@ -96,13 +130,14 @@ int     backtracking(t_tetris *tetris, char **grid, int size, int nb_piece, int 
                                 backtracking(tetris, grid, size, nb_piece, 0, (index + 1));
                         else if ((index + 1) == nb_piece)
                         {
-                                print_grid(grid, size);
-                                return (1);
+							print_grid(grid, size, &cnt);
+                            return (1);
                         }
                         return (1);
                 }
                 pos_spe++;
-        }
+				}
         printf("blabala\n");
         return (0);
 }
+*/

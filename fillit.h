@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 17:49:30 by ybecret           #+#    #+#             */
-/*   Updated: 2017/03/30 17:50:22 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/04/06 15:55:34 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct	s_tetris
 	char			piece[17];
 	int			index;
 	int			position[2][4];
+	int			pos_spe;
 }					t_tetris;
 
 typedef struct s_grid
@@ -59,7 +60,7 @@ void    print_pos(t_tetris *tetris, int index);
 
 int     fill_grid(t_tetris *tetris, int nb_piece);
 void    set_grid (char **grid, int size);
-void    print_grid(char **grid, int size);
+void    print_grid(char **grid, int size, int *cnt);
 void    free_grid(char **grid, int size);
 void 	init_grid(char **grid, int size);
 

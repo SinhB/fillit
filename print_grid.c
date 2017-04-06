@@ -6,13 +6,13 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 15:46:21 by ybecret           #+#    #+#             */
-/*   Updated: 2017/03/30 17:50:13 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/04/06 10:26:38 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void    print_grid(char **grid, int size)
+void    print_grid(char **grid, int size, int *cnt)
 {
         int  i;
 
@@ -26,6 +26,7 @@ void    print_grid(char **grid, int size)
                 i++;
         }
         printf("%s\n", "aurevoir");
+		*cnt = 1;
 }
 
 void    print_pos(t_tetris *tetris, int index)
