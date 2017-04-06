@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 19:27:13 by ybecret           #+#    #+#             */
-/*   Updated: 2017/04/06 16:12:55 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/04/06 17:40:14 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ int     test_pos(char **grid, t_tetris *tetris, int index, int pos_spe, int size
         int cnt;
 
         cnt = 0;
-        printf("posX : %d\n", posX);
-        printf("posY : %d\n", posY);
+		/* printf("posX : %d\n", posX);
+		   printf("posY : %d\n", posY);*/
         while (cnt < 4)
         {
                 x = tetris[index].position[0][cnt] + posX;
                 y = tetris[index].position[1][cnt] + posY;
-				/* printf("grid: %c\n", grid[y][x]);
+				if ((y >= size) || (y >= size))
+					return (1);
+				/*printf("grid: %c\n", grid[y][x]);
                 printf("x: %d\n", x);
                 printf("y: %d\n", y);*/
-                if (!grid[y][x])
-                        return (1);
                 if (grid[y][x] == '.')
                         cnt++;
                 else
@@ -71,6 +71,7 @@ void    delete_piece(char **grid, t_tetris *tetris, int index, int size)
                 grid[y][x] = '.';
                 cnt++;
         }
+		//	printf("piece %d delete !\n", index);
 }
 
 int     backtracking(t_tetris *tetris, char **grid, int size, int nb_piece, int pos_spe, int index)
@@ -83,17 +84,17 @@ int     backtracking(t_tetris *tetris, char **grid, int size, int nb_piece, int 
 		{
 			if (cnt == 1)
 				return (1);
-			printf("index : %d\n", index);
-			printf("pos_spe : %d\n", pos_spe);
+/*			printf("index : %d\n", index);
+			printf("pos_spe : %d\n", pos_spe);*/
 			if (pos_spe == (size *size))
 			{
 				delete_piece(grid, tetris, index - 1, size);
-				pos_spe = tetris[index - 1].pos_spe + 1 ;
+				pos_spe = tetris[index - 1].pos_spe + 1;
 				index = index - 1;
 			}
 			if (test_pos(grid, tetris, index, pos_spe, size) == 0)
 			{
-				printf("test_pos = 0\n");
+//				printf("test_pos = 0\n");
 				place_piece(grid, tetris, index, pos_spe, size);
 				if (index + 1 != nb_piece)
 					backtracking(tetris, grid, size, nb_piece, 0, index + 1);
@@ -107,37 +108,3 @@ int     backtracking(t_tetris *tetris, char **grid, int size, int nb_piece, int 
 		}
 		return (0);
 }
-    //    index = 0;
-/*        while ((pos_spe <= (size * size)))
-        {
-                printf("index : %d\n", index);
-                printf("pos_spe : %d\n", pos_spe);
-				if (cnt == 1)
-					return (1);
-                if ((pos_spe == (size * size)) && ((index + 1 == nb_piece)))
-                {
-                        free_grid(grid, size);
-                        if (!(grid = (char**)malloc(sizeof(char*) * size)))
-                                check_errors(0);
-                        set_grid(grid, size);
-                        backtracking(tetris, grid, size, nb_piece, (start + 1), 0);
-                }
-                if (test_pos(grid, tetris, index, pos_spe, size) == 0)
-                {
-                        printf("test_pos = 0\n");
-                        place_piece(grid, tetris, index, pos_spe, size);
-                        if ((index + 1) != nb_piece)
-                                backtracking(tetris, grid, size, nb_piece, 0, (index + 1));
-                        else if ((index + 1) == nb_piece)
-                        {
-							print_grid(grid, size, &cnt);
-                            return (1);
-                        }
-                        return (1);
-                }
-                pos_spe++;
-				}
-        printf("blabala\n");
-        return (0);
-}
-*/

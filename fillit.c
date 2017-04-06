@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:29:17 by ybecret           #+#    #+#             */
-/*   Updated: 2017/03/30 16:16:31 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/04/06 17:20:21 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,7 +186,7 @@ int		fillit(int fd)
 	printf("%s\n", "tetriminos valides !");
 	fill_pos(tetris, nb_piece);  //remplissage coordonnee x y
 	fill_grid(tetris, nb_piece);
-	print_pos(tetris, nb_piece);  //affichage
+//	print_pos(tetris, nb_piece);  //affichage
 	free(tetris);
 	return (0);
 }
