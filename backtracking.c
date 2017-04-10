@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 19:27:13 by ybecret           #+#    #+#             */
-/*   Updated: 2017/04/06 17:40:14 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/04/08 00:17:31 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,16 @@ int     backtracking(t_tetris *tetris, char **grid, int size, int nb_piece, int 
 
 		while (pos_spe <= size * size)
 		{
-			if (cnt == 1)
-				return (1);
 /*			printf("index : %d\n", index);
 			printf("pos_spe : %d\n", pos_spe);*/
 			if (pos_spe == (size *size))
 			{
+                                if (index == 0)
+                                {
+                                        printf("cnt = 0\n");
+                                        cnt = 2;
+                                        return (cnt);
+                                }
 				delete_piece(grid, tetris, index - 1, size);
 				pos_spe = tetris[index - 1].pos_spe + 1;
 				index = index - 1;
@@ -101,8 +105,10 @@ int     backtracking(t_tetris *tetris, char **grid, int size, int nb_piece, int 
 				else if (index + 1 == nb_piece)
 				{
 					print_grid(grid, size, &cnt);
-					return (1);
+					return (cnt);
 				}
+                                if (cnt)
+        				return (cnt);
 			}
 			pos_spe++;
 		}

@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/19 19:44:59 by ybecret           #+#    #+#             */
-/*   Updated: 2017/04/06 16:55:41 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/04/07 22:38:55 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int     fill_grid(t_tetris *tetris, int nb_piece)
         char    **grid;
         int     size;
 
-        printf("%s\n", "salut");
         printf("nb_tetriminos : %d\n", nb_piece);
         size = ft_sqrt(nb_piece * 4);
         printf("grid size : %d\n", size);
@@ -64,6 +63,7 @@ int     fill_grid(t_tetris *tetris, int nb_piece)
                         printf("a bientot\n");
                         return (0);
                 }
+                printf("size++\n");
                 free_grid(grid, size);
                 size++;
         }

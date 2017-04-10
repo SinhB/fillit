@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 17:49:30 by ybecret           #+#    #+#             */
-/*   Updated: 2017/04/06 15:55:34 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/04/06 21:52:46 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,6 @@ typedef struct	s_tetris
 	int			pos_spe;
 }					t_tetris;
 
-typedef struct s_grid
-{
-	char			**grid;
-	int			size;
-}					t_grid;
-
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <fcntl.h>
@@ -51,7 +45,7 @@ int	fill_tetris(t_tetris *tetris, char *buff, int nb_piece);
 int     nb_tetriminos(char *buff);
 char	*tp_theleft(char *piece);
 char	*ft_replace(char *piece);
-t_valid* fill_valid(void);
+t_valid *fill_valid(void);
 int     test_tetris(t_tetris *tetris, int nb_tetriminos);
 
 void    fill_pos(t_tetris *tetris, int nb_piece);

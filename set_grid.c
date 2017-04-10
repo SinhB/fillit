@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 15:26:24 by ybecret           #+#    #+#             */
-/*   Updated: 2017/03/30 16:20:44 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/04/06 21:48:23 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,6 @@ void     set_grid(char **grid, int size)
         int i;
 
         i = 0;
-        printf("%s\n", "hola");
-        /*if (!(grid = (char**)malloc(sizeof(char) * size)))
-                check_errors(0);*/
         while (i < size)
         {
                 grid[i] = ft_strnew(size);
