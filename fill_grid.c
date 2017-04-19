@@ -6,7 +6,7 @@
 /*   By: ybecret <ybecret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/19 19:44:59 by ybecret           #+#    #+#             */
-/*   Updated: 2017/04/07 22:38:55 by ybecret          ###   ########.fr       */
+/*   Updated: 2017/04/19 18:29:16 by ybecret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,18 @@ int     fill_grid(t_tetris *tetris, int nb_piece)
         printf("grid size : %d\n", size);
         if (!(grid = (char**)malloc(sizeof(char*) * size)))
                 check_errors(0);
-        while (size)
-        {
-                set_grid(grid, size);
-                if (backtracking(tetris, grid, size, nb_piece, 0, 0) == 1)
-                {
-                        free_grid(grid, size);
-                        printf("a bientot\n");
-                        return (0);
-                }
-                printf("size++\n");
-                free_grid(grid, size);
-                size++;
-        }
+		set_grid(grid, size);
+		while (backtracking(tetris, grid, size, nb_piece, 0, 0) != 1)
+		{
+			printf("size++\n");
+			free_grid(grid, size);
+			size++;
+			printf("size = %d\n", size);
+			if (!(grid = (char**)malloc(sizeof(char*) * size)))
+                check_errors(0);
+			set_grid(grid, size);
+			printf("set_grid\n");
+		}
+		free_grid(grid, size);
         return (0);
 }
