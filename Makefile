@@ -17,7 +17,7 @@ SOURCES = 	check_errors.c\
 OBJ = $(SOURCES:.c=.o)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAiGS) -o $(NAME) $(SOURCES)
+	$(CC) $(FLAGS) -O3 -o $(NAME) $(SOURCES)
 
 all: $(NAME)
 
