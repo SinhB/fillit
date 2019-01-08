@@ -25,7 +25,7 @@ int		test_pos(char **grid, t_tetris *tetris, int index, int pos_spe)
 	{
 		x = tetris[index].position[0][cnt] + POSX;
 		y = tetris[index].position[1][cnt] + POSY;
-		if ((y >= size) || (y >= size))
+		if ((y >= size) || (x >= size))
 			return (1);
 		if (grid[y][x] == '.')
 			cnt++;
